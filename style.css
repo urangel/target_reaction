@@ -1,0 +1,33 @@
+body {
+  min-height: 100%;
+  min-width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: 
+    "n n t t t t t t t t t t"
+    "n n t t t t t t t t t t"
+    "n n t t t t t t t t t t"
+    "n n t t t t t t t t t t"
+    "n n t t t t t t t t t t"
+    "n n t t t t t t t t t t"
+    "n n t t t t t t t t t t"
+    "n n t t t t t t t t t t"
+    "n n t t t t t t t t t t"
+    "n n t t t t t t t t t t"
+    "n n t t t t t t t t t t"
+    "n n t t t t t t t t t t"
+    "n n t t t t t t t t t t"
+
+}
+
+#nav {
+  grid-area: n;
+  background-color: purple;
+}
+
+#target-area{
+  grid-area: t;
+  background-color: #444;
+  border-radius:50%;
+}

@@ -56,6 +56,10 @@ body {
   grid-area: t;
 }
 
+#target:hover {
+  cursor: pointer;
+}
+
 #blank {
   grid-area: b;
   background-color: #ccc;

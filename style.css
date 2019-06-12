@@ -33,7 +33,7 @@ body {
     "stats";
 
   /* grid-area: n; */
-  background-color: purple;
+  background-color: #666;
   color: #ccc;
 }
 
@@ -43,6 +43,21 @@ body {
 
 #stats {
   grid-area: stats;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas: 
+    "text"
+    "chart";
+
+
+}
+
+#text {
+  grid-area: text;
+}
+
+#chart {
+  grid-area: chart;
 }
 
 #fastest {
@@ -77,6 +92,16 @@ body {
   /* background-color: #444; */
   /* border-radius:50%; */
 }
+
+#chart div {
+  font: 15px sans-serif;
+  background-color: darkred;
+  text-align: right;
+  padding: 10px;
+  margin: 5px;
+  color: white;
+}
+
 
 @media only screen and (max-width: 576px){
   body{

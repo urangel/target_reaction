@@ -63,8 +63,16 @@ document.addEventListener("DOMContentLoaded", function(){
 
     }
 
-  })
+  });
 
-
+  document.getElementById("fastest").addEventListener("click", function(e){
+    d3.select("#chart")
+      .selectAll("div")
+      .data(roundTimes)
+      .enter().append("div")
+      .style("width", function(d) { return d / 5 + "px"; })
+      .text(function(d) { return d + " ms"; });
+  });
+  
 });
 

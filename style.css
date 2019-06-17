@@ -1,3 +1,8 @@
+/* Specifiy what to do when grid is not supported, usually serve mobile experience but this whole game is grid based...*/
+@supports not (display: grid) {
+	/* Browse with grid please */
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -40,16 +45,20 @@ body {
 #title {
   grid-area: title;
 }
-
+#start {
+  grid-area: start;
+}
+#start-button{
+  background-color: red;
+  padding: 50px;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+}
 #stats {
-  grid-area: stats;
-  display: grid;
-  grid-template-rows: 1fr 2fr;
-  grid-template-areas: 
-    "text"
-    "chart";
-
-
+  display: none;
+  width: 100%;
 }
 
 #text {
@@ -57,7 +66,8 @@ body {
 }
 
 #chart {
-  grid-area: chart;
+  /* grid-area: chart; */
+  /* display: none; */
 }
 
 #fastest {
@@ -66,9 +76,9 @@ body {
 
 #target {
   justify-self: stretch;
-  /* height: 50px;
-  width: 50px; */
   background-color: red;
+  border-radius: 50%;
+  border: 10px inset #aaa;
   grid-area: t;
 }
 
@@ -86,8 +96,20 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  /* grid-template-areas: ". . . . . . . . . . . ."". . . . . . . . . . . ."". . . . . . . . . . . ."". . . . . . . . . . . ."". . . . . . . . . . . .""t . . . . . . . . . . ."". . . . . . . . . . . ."". . . . . . . . . . . ."". . . . . . . . . . . ."". . . . . . . . . . . ."". . . . . . . . . . . ."". . . . . . . . . . . .";
- ; */
+  grid-template-areas: 
+  ". . . . . . . . . . . ."
+  ". . . . . . . . . . . ."
+  ". . . . . . . . . . . ."
+  ". . . . . . . . . . . ."
+  ". . . . . . . . . . . ."
+  ". . . . . start . . . . . ."
+  ". . . . . . . . . . . ."
+  ". . . . . . . . . . . ."
+  ". . . . . . . . . . . ."
+  ". . . . . . . . . . . ."
+  ". . . . . . . . . . . ."
+  ". . . . . . . . . . . .";
+ ;
 
   /* background-color: #444; */
   /* border-radius:50%; */

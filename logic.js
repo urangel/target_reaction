@@ -5,6 +5,7 @@ let roundTimes = [];
 let targetArea = document.getElementById("target-area");
 let startButton = document.getElementById("start-button");
 let title = document.querySelector("div#title h1");
+let stats = document.getElementById("stats");
 
 
 function genTemp() {
@@ -44,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(){
   document.getElementById("target").addEventListener("click", function(e) {
     e.preventDefault();
     
-    if(roundTimes.length < 10){
+    if(roundTimes.length < 1){
       endTime = Date.now();
       roundTime = endTime - startTime;
       roundTimes.push(roundTime);
@@ -52,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function(){
       genTemp();
   
     } else {
-      title.innerHTML = "Game Over";
+      // title.innerHTML = "Game Over";
       let averager = (array) => array.reduce((a, b) => a + b) / array.length;
       average = parseInt(averager(roundTimes));
       slowest = Math.max(...roundTimes);
@@ -60,19 +61,22 @@ document.addEventListener("DOMContentLoaded", function(){
       document.getElementById("fast-val").innerText = "Your fastest reaction was " + fastest + " ms";
       document.getElementById("slow-val").innerText = "Your slowest reaction was " + slowest + " ms";
       document.getElementById("average-val").innerText = "Your average reaction was " + average + " ms";
+      targetArea.setAttribute("style", "display: none");
+      stats.style.display = "flex";
 
+      d3.select("#chart")
+      .selectAll("div")
+      .data(roundTimes)
+      .enter().append("div")
+      .style("width", function(d) { return d / 5 + "px"; })  //Here I need to normalize the width of the max element to 100% the size of the container and adjust all other divs according to that reference.
+      .text(function(d) { return d + " ms"; });
     }
 
   });
 
-  document.getElementById("fastest").addEventListener("click", function(e){
-    d3.select("#chart")
-      .selectAll("div")
-      .data(roundTimes)
-      .enter().append("div")
-      .style("width", function(d) { return d / 5 + "px"; })
-      .text(function(d) { return d + " ms"; });
-  });
+  // document.getElementById("fastest").addEventListener("click", function(e){
+    
+  // });
   
 });
 

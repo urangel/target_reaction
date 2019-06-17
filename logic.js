@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(){
   document.getElementById("target").addEventListener("click", function(e) {
     e.preventDefault();
     
-    if(roundTimes.length < 1){
+    if(roundTimes.length < 10){
       endTime = Date.now();
       roundTime = endTime - startTime;
       roundTimes.push(roundTime);
